@@ -11,6 +11,14 @@ import SpriteKit
 let projectileCategory : UInt32 = 0x1 << 0
 let monsterCategory    : UInt32 = 0x1 << 1
 
+// overload '%'
+@infix func %(lhs: UInt32, rhs: Float) -> Float {
+    return Float(lhs) % Float(rhs)
+}
+@infix func %(lhs: UInt32, rhs: Double) -> Double {
+    return Double(lhs) % Double(rhs)
+}
+
 let niAdd = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x + b.x, a.y + b.y)}
 let niSub = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x - b.x, a.y - b.y)}
 let niMult = {(a: CGPoint, b: Float) -> CGPoint in CGPointMake(a.x * b, a.y * b)}
@@ -19,14 +27,6 @@ let niLength = {(a: CGPoint) -> Float in sqrtf(a.x * a.x + a.y * a.y)}
 let niNormalize = {(a : CGPoint) -> CGPoint in
     var length = niLength(a)
     return CGPointMake(a.x / length, a.y / length)
-    }
-
-// overload '%'
-@infix func %(lhs: UInt32, rhs: Float) -> Float {
-    return Float(lhs) % Float(rhs)
-}
-@infix func %(lhs: UInt32, rhs: Double) -> Double {
-    return Double(lhs) % Double(rhs)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {

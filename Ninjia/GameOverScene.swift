@@ -14,11 +14,11 @@ class GameOverScene : SKScene {
         self.init(size: size)
         self.backgroundColor = SKColor(red:1.0, green:1.0, blue:1.0, alpha:1.0)
         
-        self.setupMsgLabel(won)
+        self.setupMsgLabel(isWon :won)
         self.directorAction()
     }
     
-    func setupMsgLabel(won: Bool) {
+    func setupMsgLabel(isWon won: Bool) {
         var msg: String = won ? "Yow Won!" : "You Lose :["
         
         var msgLabel = SKLabelNode(fontNamed: "Chalkduster")
