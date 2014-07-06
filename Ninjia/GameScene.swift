@@ -11,18 +11,21 @@ import SpriteKit
 let projectileCategory : UInt32 = 0x1 << 0
 let monsterCategory    : UInt32 = 0x1 << 1
 
-// overload '%'
+// overload
 @infix func %(lhs: UInt32, rhs: Float) -> Float {
     return Float(lhs) % Float(rhs)
 }
 @infix func %(lhs: UInt32, rhs: Double) -> Double {
     return Double(lhs) % Double(rhs)
 }
+@infix func *(lhs: CGFloat, rhs: Float) -> CGFloat {
+    return lhs * CGFloat(rhs)
+}
 
 let niAdd = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x + b.x, a.y + b.y)}
 let niSub = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x - b.x, a.y - b.y)}
 let niMult = {(a: CGPoint, b: Float) -> CGPoint in CGPointMake(a.x * b, a.y * b)}
-let niLength = {(a: CGPoint) -> Float in sqrtf(a.x * a.x + a.y * a.y)}
+let niLength = {(a: CGPoint) -> CGFloat in CGFloat(sqrt(a.x * a.x + a.y * a.y))}
 // unit vector
 let niNormalize = {(a : CGPoint) -> CGPoint in
     var length = niLength(a)
