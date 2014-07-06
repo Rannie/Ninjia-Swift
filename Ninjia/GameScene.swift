@@ -25,7 +25,7 @@ let monsterCategory    : UInt32 = 0x1 << 1
 let niAdd = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x + b.x, a.y + b.y)}
 let niSub = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x - b.x, a.y - b.y)}
 let niMult = {(a: CGPoint, b: Float) -> CGPoint in CGPointMake(a.x * b, a.y * b)}
-let niLength = {(a: CGPoint) -> CGFloat in CGFloat(sqrt(a.x * a.x + a.y * a.y))}
+let niLength = {(a: CGPoint) -> CGFloat in CGFloat(sqrt(Double(a.x * a.x + a.y * a.y)))}
 // unit vector
 let niNormalize = {(a : CGPoint) -> CGPoint in
     var length = niLength(a)
