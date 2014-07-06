@@ -18,9 +18,6 @@ let monsterCategory    : UInt32 = 0x1 << 1
 @infix func %(lhs: UInt32, rhs: Double) -> Double {
     return Double(lhs) % Double(rhs)
 }
-@infix func *(lhs: CGFloat, rhs: Float) -> CGFloat {
-    return lhs * CGFloat(rhs)
-}
 
 let niAdd = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x + b.x, a.y + b.y)}
 let niSub = {(a: CGPoint, b: CGPoint) -> CGPoint in CGPointMake(a.x - b.x, a.y - b.y)}
